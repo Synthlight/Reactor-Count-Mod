@@ -1,0 +1,8 @@
+[submodule "lib/Base-Dll-Proxy"]
+	path = lib/Base-Dll-Proxy
+	url = https://gaia.brutsches.local/gregory/base-dll-proxy.git
+	branch = master
+[submodule "lib/SFSE"]
+	path = lib/SFSE
+	url = https://github.com/ianpatt/sfse.git
+	branch = master
