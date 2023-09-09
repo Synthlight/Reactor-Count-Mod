@@ -1,6 +1,11 @@
-# Reactor Count SFSE Plugin
+# SFSE Plugin For Various Patches
 
-[Everything's on Nexus](https://www.nexusmods.com/starfield/mods/1169).
+This was originally made for reactors counts, but has expanded to build multiple plugins to affect similar patches.
+
+- [No Reactor Limit](https://www.nexusmods.com/starfield/mods/1169)
+- [No Shield Limit](https://www.nexusmods.com/starfield/mods/1475)
+- [No Minimum Landing Gear](https://www.nexusmods.com/starfield/mods/1479)
+- [No Reactor Class Requirement](https://www.nexusmods.com/starfield/mods/1482)
 
 # Building
 
@@ -18,3 +23,5 @@ i.e. you should have a directory with:
 ```
 
 Open in VS and have fun.
+
+Batch build whichever configs you want.

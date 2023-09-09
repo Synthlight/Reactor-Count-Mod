@@ -7,3 +7,5 @@
 #pragma once
 
 #include "..\Base-Dll-Proxy\pch.h"
+
+#include <map>

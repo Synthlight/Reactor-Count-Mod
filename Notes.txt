@@ -1,0 +1,40 @@
+StarfieldSFSE.exe+13BC836- 7E 58                 - jle StarfieldSFSE.exe+13BC890
+StarfieldSFSE.exe+13BC838- 48 8D 15 E1C2F902     - lea rdx,[StarfieldSFSE.exe+4358B20]
+StarfieldSFSE.exe+13BC83F- 48 8D 4D 50           - lea rcx,[rbp+50]
+StarfieldSFSE.exe+13BC843- E8 747D1BFF           - call StarfieldSFSE.exe+5745BC
+StarfieldSFSE.exe+13BC848- 48 8B D8              - mov rbx,rax
+StarfieldSFSE.exe+13BC84B- 48 8D 15 6EC2F902     - lea rdx,[StarfieldSFSE.exe+4358AC0]
+StarfieldSFSE.exe+13BC852- 48 8D 4D 40           - lea rcx,[rbp+40]
+StarfieldSFSE.exe+13BC856- E8 617D1BFF           - call StarfieldSFSE.exe+5745BC
+StarfieldSFSE.exe+13BC85B- 90                    - nop 
+
+
+Pre patch:
+7E 58 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50
+
+7E -> EB
+
+Post patch:
+EB 58 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50
+
+
+
+
+But we can extend this as it can match multiple spots where the checks are almost identical.
+The 2nd instruction, the `lea`, loads the address of a string that looks like this:
+
+SB_LIMITBODY_MAX_COCKPIT
+SB_LIMITBODY_MAX_GRAV_DRIVE
+SB_LIMITBODY_MAX_REACTOR
+SB_LIMITBODY_MAX_SHIELD
+SB_ERRORBODY_REACTOR_CLASS
+
+
+So we search for:
+
+7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50
+
+Which has 10 or so matches.
+
+Read the lea offset, reverse the bytes, add to found address and +9 for the size of the instructions.
+Read what's left as a string and compare to one of these when patching.
