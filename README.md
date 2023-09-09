@@ -3,9 +3,11 @@
 This was originally made for reactors counts, but has expanded to build multiple plugins to affect similar patches.
 
 - [No Reactor Limit](https://www.nexusmods.com/starfield/mods/1169)
-- [No Shield Limit](https://www.nexusmods.com/starfield/mods/1475)
-- [No Minimum Landing Gear](https://www.nexusmods.com/starfield/mods/1479)
 - [No Reactor Class Requirement](https://www.nexusmods.com/starfield/mods/1482)
+- [No Minimum Landing Gear](https://www.nexusmods.com/starfield/mods/1479)
+- [No Shield Limit](https://www.nexusmods.com/starfield/mods/1475)
+- [No Engine Power Limits](https://www.nexusmods.com/starfield/mods/1511)
+- [No Weapon Power Limits](https://www.nexusmods.com/starfield/mods/1510)
 
 # Building
 

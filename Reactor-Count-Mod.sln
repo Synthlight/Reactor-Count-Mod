@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base-Dll-Proxy", "..\Base-D
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		EnginePower - Debug|x64 = EnginePower - Debug|x64
+		EnginePower - Release|x64 = EnginePower - Release|x64
 		LandingGear - Debug|x64 = LandingGear - Debug|x64
 		LandingGear - Release|x64 = LandingGear - Release|x64
 		Reactor - Debug|x64 = Reactor - Debug|x64
@@ -17,8 +19,14 @@ Global
 		ReactorClass - Release|x64 = ReactorClass - Release|x64
 		Shield - Debug|x64 = Shield - Debug|x64
 		Shield - Release|x64 = Shield - Release|x64
+		WeaponPower - Debug|x64 = WeaponPower - Debug|x64
+		WeaponPower - Release|x64 = WeaponPower - Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Debug|x64.ActiveCfg = EnginePower - Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Debug|x64.Build.0 = EnginePower - Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Release|x64.ActiveCfg = EnginePower - Release|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Release|x64.Build.0 = EnginePower - Release|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Debug|x64.ActiveCfg = LandingGear - Debug|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Debug|x64.Build.0 = LandingGear - Debug|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Release|x64.ActiveCfg = LandingGear - Release|x64
@@ -35,6 +43,14 @@ Global
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Shield - Debug|x64.Build.0 = Shield - Debug|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Shield - Release|x64.ActiveCfg = Shield - Release|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Shield - Release|x64.Build.0 = Shield - Release|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Debug|x64.ActiveCfg = WeaponPower - Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Debug|x64.Build.0 = WeaponPower - Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Release|x64.ActiveCfg = WeaponPower - Release|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Release|x64.Build.0 = WeaponPower - Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Debug|x64.ActiveCfg = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Debug|x64.Build.0 = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Release|x64.ActiveCfg = Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Release|x64.Build.0 = Release|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Debug|x64.ActiveCfg = Debug|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Debug|x64.Build.0 = Debug|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Release|x64.ActiveCfg = Release|x64
@@ -51,6 +67,10 @@ Global
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Shield - Debug|x64.Build.0 = Debug|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Shield - Release|x64.ActiveCfg = Release|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Shield - Release|x64.Build.0 = Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Debug|x64.ActiveCfg = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Debug|x64.Build.0 = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Release|x64.ActiveCfg = Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

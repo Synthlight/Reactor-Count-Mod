@@ -16,6 +16,8 @@ std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
     {"Reactor-Count-Mod", std::vector<std::string> {"SB_LIMITBODY_MAX_REACTOR"}},
     {"Reactor-Class-Mod", std::vector<std::string> {"SB_ERRORBODY_REACTOR_CLASS"}},
     {"Shield-Count-Mod", std::vector<std::string> {"SB_LIMITBODY_MAX_SHIELD"}},
+    {"Engine-Power-Mod", std::vector<std::string> {"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
+    {"Weapon-Power-Mod", std::vector<std::string> {"SB_LIMITBODY_EXCESS_POWER_WEAPON"}},
 };
 
 std::map<std::string, std::string> SCAN_MAPPING = {
@@ -24,6 +26,8 @@ std::map<std::string, std::string> SCAN_MAPPING = {
     {"Reactor-Count-Mod", "7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}, // 7E == `jle`
     {"Reactor-Class-Mod", "75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}, // 75 == `jne`
     {"Shield-Count-Mod", "7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}, // 7E == `jle`
+    {"Engine-Power-Mod", "7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}, // 7E == `jle`
+    {"Weapon-Power-Mod", "EB ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}, // EB == `jmp`. This one's unique as the 74 (`je`) 4 ops before (-11 bytes) this to EB (`jmp`).
 };
 
 extern "C" {
@@ -86,9 +90,25 @@ void DoInjection() {
             //Log("String addr: " << std::uppercase << std::hex << strBegin);
             //Log("Type string: " << typeStr);
 
-            DoWithProtect((BYTE*) address, 1, [newBytes, address]() {
-                memcpy((BYTE*) address, newBytes.data(), newBytes.size());
-            });
+            if (TARGET_NAME == "Weapon-Power-Mod") {
+                auto jeAddress = address - 11;
+
+                if (*jeAddress != 0x74) {
+                    Log("Error finding `JE` for `Weapon-Power-Mod`. Expected `74`, found `" << std::uppercase << std::hex << *jeAddress << "`. Aborting.");
+                    continue;
+                }
+
+                Log("JE offset (-11) address: " << std::uppercase << std::hex << (UINT64) jeAddress);
+
+                DoWithProtect((BYTE*) jeAddress, 1, [newBytes, jeAddress]() {
+                    memcpy((BYTE*) jeAddress, newBytes.data(), newBytes.size());
+                });
+            } else {
+                DoWithProtect((BYTE*) address, 1, [newBytes, address]() {
+                    memcpy((BYTE*) address, newBytes.data(), newBytes.size());
+                });
+            }
+
             Log(typeStr << " patched.");
             patchedCount++;
         }
@@ -106,6 +126,6 @@ extern "C" {
         });
         if (thread.joinable()) thread.detach();
 
-        Log("Scan thread spawned.");
+        Log("Scan thread spawned."); // Don't remove. Plugin fails to load without it for some mysterious reason.
     }
 };
