@@ -65,7 +65,7 @@ void DoInjection() {
                 //LOG("String addr: " << std::uppercase << std::hex << strBegin);
                 //LOG("Type string: " << typeStr);
 
-                if (std::strcmp(TARGET_NAME, "Weapon-Power-Mod") != 0 && typeStr == "SB_LIMITBODY_EXCESS_POWER_WEAPON") {
+                if (std::strcmp(TARGET_NAME, "Weapon-Power-Mod") == 0 && typeStr == "SB_LIMITBODY_EXCESS_POWER_WEAPON") {
                     auto jeAddress = address - 11;
 
                     if (*jeAddress != 0x74) {
