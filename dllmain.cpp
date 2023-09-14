@@ -11,13 +11,13 @@
 std::ofstream out;
 
 const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
-    //{"GravDrive-Count-Mod", std::vector<std::string>{"SB_LIMITBODY_MAX_GRAV_DRIVE"}}, // Winds up with "you need additional grav thrust".
-    {"LandingGear-Count-Mod", std::vector<std::string>{"SB_LIMITBODY_MIN_LANDING_GEAR"}},
-    {"Reactor-Count-Mod", std::vector<std::string>{"SB_LIMITBODY_MAX_REACTOR"}},
-    {"Reactor-Class-Mod", std::vector<std::string>{"SB_ERRORBODY_REACTOR_CLASS"}},
-    {"Shield-Count-Mod", std::vector<std::string>{"SB_LIMITBODY_MAX_SHIELD"}},
-    {"Engine-Power-Mod", std::vector<std::string>{"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
-    {"Weapon-Power-Mod", std::vector<std::string>{"SB_LIMITBODY_EXCESS_POWER_WEAPON", "SB_LIMITBODY_MAX_WEAPONS"}},
+    //{"GravDrive-Count-Mod", {"SB_LIMITBODY_MAX_GRAV_DRIVE"}}, // Winds up with "you need additional grav thrust".
+    {"LandingGear-Count-Mod", {"SB_LIMITBODY_MIN_LANDING_GEAR"}},
+    {"Reactor-Count-Mod", {"SB_LIMITBODY_MAX_REACTOR"}},
+    {"Reactor-Class-Mod", {"SB_ERRORBODY_REACTOR_CLASS"}},
+    {"Shield-Count-Mod", {"SB_LIMITBODY_MAX_SHIELD"}},
+    {"Engine-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
+    {"Weapon-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_WEAPON", "SB_LIMITBODY_MAX_WEAPONS"}},
 };
 
 const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
