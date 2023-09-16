@@ -11,6 +11,8 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		EnginePower - Debug|x64 = EnginePower - Debug|x64
 		EnginePower - Release|x64 = EnginePower - Release|x64
+		GravWeight - Debug|x64 = GravWeight - Debug|x64
+		GravWeight - Release|x64 = GravWeight - Release|x64
 		LandingGear - Debug|x64 = LandingGear - Debug|x64
 		LandingGear - Release|x64 = LandingGear - Release|x64
 		Reactor - Debug|x64 = Reactor - Debug|x64
@@ -27,6 +29,10 @@ Global
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Debug|x64.Build.0 = EnginePower - Debug|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Release|x64.ActiveCfg = EnginePower - Release|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Release|x64.Build.0 = EnginePower - Release|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Debug|x64.ActiveCfg = GravWeight - Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Debug|x64.Build.0 = GravWeight - Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Release|x64.ActiveCfg = GravWeight - Release|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Release|x64.Build.0 = GravWeight - Release|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Debug|x64.ActiveCfg = LandingGear - Debug|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Debug|x64.Build.0 = LandingGear - Debug|x64
 		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Release|x64.ActiveCfg = LandingGear - Release|x64
@@ -51,6 +57,10 @@ Global
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Debug|x64.Build.0 = Debug|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Release|x64.ActiveCfg = Release|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Release|x64.Build.0 = Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Debug|x64.ActiveCfg = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Debug|x64.Build.0 = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Release|x64.ActiveCfg = Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Release|x64.Build.0 = Release|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Debug|x64.ActiveCfg = Debug|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Debug|x64.Build.0 = Debug|x64
 		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Release|x64.ActiveCfg = Release|x64

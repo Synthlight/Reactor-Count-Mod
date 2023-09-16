@@ -12,6 +12,7 @@ std::ofstream out;
 
 const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
     //{"GravDrive-Count-Mod", {"SB_LIMITBODY_MAX_GRAV_DRIVE"}}, // Winds up with "you need additional grav thrust".
+    {"GravDrive-Weight-Mod", {"SB_ERRORBODY_SHIP_TOO_HEAVY_TO_GRAVJUMP"}},
     {"LandingGear-Count-Mod", {"SB_LIMITBODY_MIN_LANDING_GEAR"}},
     {"Reactor-Count-Mod", {"SB_LIMITBODY_MAX_REACTOR"}},
     {"Reactor-Class-Mod", {"SB_ERRORBODY_REACTOR_CLASS"}},
@@ -22,6 +23,7 @@ const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
 
 const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
     //{"GravDrive-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
+    {"GravDrive-Weight-Mod", {"73 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 73 == `jae`
     {"LandingGear-Count-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
     {"Reactor-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"Reactor-Class-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
@@ -32,6 +34,7 @@ const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
 
 void DoInjection() {
     LOG(TARGET_NAME << " loading.");
+    LOG("Target version: " << std::uppercase << std::hex << CURRENT_RELEASE_RUNTIME);
 
     const auto moduleName = GetExeFilename();
     LOG("Found module name: " << moduleName);
