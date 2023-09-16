@@ -315,7 +315,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LandingGear - Debug|x64'">
@@ -336,7 +336,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WeaponPower - Debug|x64'">
@@ -357,7 +357,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='EnginePower - Debug|x64'">
@@ -378,7 +378,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GravWeight - Debug|x64'">
@@ -399,7 +399,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReactorClass - Debug|x64'">
@@ -420,7 +420,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Shield - Debug|x64'">
@@ -441,7 +441,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Reactor - Release|x64'">
@@ -467,7 +467,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LandingGear - Release|x64'">
@@ -493,7 +493,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WeaponPower - Release|x64'">
@@ -519,7 +519,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='EnginePower - Release|x64'">
@@ -545,7 +545,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GravWeight - Release|x64'">
@@ -571,7 +571,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReactorClass - Release|x64'">
@@ -597,7 +597,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Shield - Release|x64'">
@@ -623,7 +623,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" "C:\SteamLibrary\common\Prodeus" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

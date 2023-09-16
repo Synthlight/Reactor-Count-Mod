@@ -8,4 +8,6 @@
 
 #include "..\Base-Dll-Proxy\pch.h"
 
+#pragma comment(lib, "version")
+
 #include <map>

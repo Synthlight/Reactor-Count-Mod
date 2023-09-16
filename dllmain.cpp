@@ -100,6 +100,25 @@ void DoInjection() {
     LOG("Patched " << patchedCount << " match(es).");
 }
 
+BOOL WINAPI DllMain(HINSTANCE hInst, const DWORD reason, LPVOID) {
+    if (reason == DLL_PROCESS_ATTACH) {
+        // Do nothing if not an ASI as SFSE will handle it instead.
+        if (!EndsWith(GetFullModulePath(), ".asi")) return TRUE;
+
+        out = SetupLog(GetLogPathAsCurrentDllDotLog());
+
+        LOG(TARGET_NAME << " initializing.");
+
+        auto thread = std::thread([] {
+            DoInjection();
+        });
+        if (thread.joinable()) thread.detach();
+
+        LOG("Scan thread spawned.");
+    }
+    return TRUE;
+}
+
 extern "C" {
 // Copied from `PluginAPI.h`.
 // ReSharper disable once CppInconsistentNaming
