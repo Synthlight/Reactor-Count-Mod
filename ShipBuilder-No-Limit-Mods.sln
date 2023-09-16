@@ -3,84 +3,60 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShipBuilder-No-Limit-Mods", "ShipBuilder-No-Limit-Mods.vcxproj", "{5745FE58-B03C-4104-8E0F-F33DDD17EA99}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base-Dll-Proxy", "..\Base-Dll-Proxy\Base-Dll-Proxy.vcxproj", "{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine-Power", "Engine-Power.vcxproj", "{5745FE58-B03C-4104-8E0F-F33DDD17EA99}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Grav-Weight", "Grav-Weight.vcxproj", "{100BAAE9-D256-49E9-907D-487F8CBDE495}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Landing-Gear", "Landing-Gear.vcxproj", "{4B471E59-5E37-409B-B2EE-6858E465AD95}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reactor-Class", "Reactor-Class.vcxproj", "{A4A09E40-A2C8-4FB4-B90B-3A0A19D2AC51}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reactor-Count", "Reactor-Count.vcxproj", "{899A5753-1451-40FE-82B0-C8947C97C2AC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shield-Count", "Shield-Count.vcxproj", "{BBC2FE75-2222-4744-A03D-6123A912E3AE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Weapon-Power", "Weapon-Power.vcxproj", "{08806613-291B-47D3-B0ED-D044C4341B84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		EnginePower - Debug|x64 = EnginePower - Debug|x64
-		EnginePower - Release|x64 = EnginePower - Release|x64
-		GravWeight - Debug|x64 = GravWeight - Debug|x64
-		GravWeight - Release|x64 = GravWeight - Release|x64
-		LandingGear - Debug|x64 = LandingGear - Debug|x64
-		LandingGear - Release|x64 = LandingGear - Release|x64
-		Reactor - Debug|x64 = Reactor - Debug|x64
-		Reactor - Release|x64 = Reactor - Release|x64
-		ReactorClass - Debug|x64 = ReactorClass - Debug|x64
-		ReactorClass - Release|x64 = ReactorClass - Release|x64
-		Shield - Debug|x64 = Shield - Debug|x64
-		Shield - Release|x64 = Shield - Release|x64
-		WeaponPower - Debug|x64 = WeaponPower - Debug|x64
-		WeaponPower - Release|x64 = WeaponPower - Release|x64
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Debug|x64.ActiveCfg = EnginePower - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Debug|x64.Build.0 = EnginePower - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Release|x64.ActiveCfg = EnginePower - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.EnginePower - Release|x64.Build.0 = EnginePower - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Debug|x64.ActiveCfg = GravWeight - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Debug|x64.Build.0 = GravWeight - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Release|x64.ActiveCfg = GravWeight - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.GravWeight - Release|x64.Build.0 = GravWeight - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Debug|x64.ActiveCfg = LandingGear - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Debug|x64.Build.0 = LandingGear - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Release|x64.ActiveCfg = LandingGear - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.LandingGear - Release|x64.Build.0 = LandingGear - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Reactor - Debug|x64.ActiveCfg = Reactor - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Reactor - Debug|x64.Build.0 = Reactor - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Reactor - Release|x64.ActiveCfg = Reactor - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Reactor - Release|x64.Build.0 = Reactor - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.ReactorClass - Debug|x64.ActiveCfg = ReactorClass - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.ReactorClass - Debug|x64.Build.0 = ReactorClass - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.ReactorClass - Release|x64.ActiveCfg = ReactorClass - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.ReactorClass - Release|x64.Build.0 = ReactorClass - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Shield - Debug|x64.ActiveCfg = Shield - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Shield - Debug|x64.Build.0 = Shield - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Shield - Release|x64.ActiveCfg = Shield - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Shield - Release|x64.Build.0 = Shield - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Debug|x64.ActiveCfg = WeaponPower - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Debug|x64.Build.0 = WeaponPower - Debug|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Release|x64.ActiveCfg = WeaponPower - Release|x64
-		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.WeaponPower - Release|x64.Build.0 = WeaponPower - Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Debug|x64.ActiveCfg = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Debug|x64.Build.0 = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Release|x64.ActiveCfg = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.EnginePower - Release|x64.Build.0 = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Debug|x64.ActiveCfg = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Debug|x64.Build.0 = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Release|x64.ActiveCfg = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.GravWeight - Release|x64.Build.0 = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Debug|x64.ActiveCfg = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Debug|x64.Build.0 = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Release|x64.ActiveCfg = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.LandingGear - Release|x64.Build.0 = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Reactor - Debug|x64.ActiveCfg = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Reactor - Debug|x64.Build.0 = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Reactor - Release|x64.ActiveCfg = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Reactor - Release|x64.Build.0 = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.ReactorClass - Debug|x64.ActiveCfg = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.ReactorClass - Debug|x64.Build.0 = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.ReactorClass - Release|x64.ActiveCfg = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.ReactorClass - Release|x64.Build.0 = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Shield - Debug|x64.ActiveCfg = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Shield - Debug|x64.Build.0 = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Shield - Release|x64.ActiveCfg = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Shield - Release|x64.Build.0 = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Debug|x64.ActiveCfg = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Debug|x64.Build.0 = Debug|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Release|x64.ActiveCfg = Release|x64
-		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.WeaponPower - Release|x64.Build.0 = Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Debug|x64.ActiveCfg = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Debug|x64.Build.0 = Debug|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Release|x64.ActiveCfg = Release|x64
+		{5A1E571D-6AEA-451D-8F65-4C0CA06654B8}.Release|x64.Build.0 = Release|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Debug|x64.ActiveCfg = Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Debug|x64.Build.0 = Debug|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Release|x64.ActiveCfg = Release|x64
+		{5745FE58-B03C-4104-8E0F-F33DDD17EA99}.Release|x64.Build.0 = Release|x64
+		{100BAAE9-D256-49E9-907D-487F8CBDE495}.Debug|x64.ActiveCfg = Debug|x64
+		{100BAAE9-D256-49E9-907D-487F8CBDE495}.Debug|x64.Build.0 = Debug|x64
+		{100BAAE9-D256-49E9-907D-487F8CBDE495}.Release|x64.ActiveCfg = Release|x64
+		{100BAAE9-D256-49E9-907D-487F8CBDE495}.Release|x64.Build.0 = Release|x64
+		{4B471E59-5E37-409B-B2EE-6858E465AD95}.Debug|x64.ActiveCfg = Debug|x64
+		{4B471E59-5E37-409B-B2EE-6858E465AD95}.Debug|x64.Build.0 = Debug|x64
+		{4B471E59-5E37-409B-B2EE-6858E465AD95}.Release|x64.ActiveCfg = Release|x64
+		{4B471E59-5E37-409B-B2EE-6858E465AD95}.Release|x64.Build.0 = Release|x64
+		{A4A09E40-A2C8-4FB4-B90B-3A0A19D2AC51}.Debug|x64.ActiveCfg = Debug|x64
+		{A4A09E40-A2C8-4FB4-B90B-3A0A19D2AC51}.Debug|x64.Build.0 = Debug|x64
+		{A4A09E40-A2C8-4FB4-B90B-3A0A19D2AC51}.Release|x64.ActiveCfg = Release|x64
+		{A4A09E40-A2C8-4FB4-B90B-3A0A19D2AC51}.Release|x64.Build.0 = Release|x64
+		{899A5753-1451-40FE-82B0-C8947C97C2AC}.Debug|x64.ActiveCfg = Debug|x64
+		{899A5753-1451-40FE-82B0-C8947C97C2AC}.Debug|x64.Build.0 = Debug|x64
+		{899A5753-1451-40FE-82B0-C8947C97C2AC}.Release|x64.ActiveCfg = Release|x64
+		{899A5753-1451-40FE-82B0-C8947C97C2AC}.Release|x64.Build.0 = Release|x64
+		{BBC2FE75-2222-4744-A03D-6123A912E3AE}.Debug|x64.ActiveCfg = Debug|x64
+		{BBC2FE75-2222-4744-A03D-6123A912E3AE}.Debug|x64.Build.0 = Debug|x64
+		{BBC2FE75-2222-4744-A03D-6123A912E3AE}.Release|x64.ActiveCfg = Release|x64
+		{BBC2FE75-2222-4744-A03D-6123A912E3AE}.Release|x64.Build.0 = Release|x64
+		{08806613-291B-47D3-B0ED-D044C4341B84}.Debug|x64.ActiveCfg = Debug|x64
+		{08806613-291B-47D3-B0ED-D044C4341B84}.Debug|x64.Build.0 = Debug|x64
+		{08806613-291B-47D3-B0ED-D044C4341B84}.Release|x64.ActiveCfg = Release|x64
+		{08806613-291B-47D3-B0ED-D044C4341B84}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
