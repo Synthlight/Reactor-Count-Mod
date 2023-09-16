@@ -35,9 +35,12 @@ const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
 void DoInjection() {
     LOG(TARGET_NAME << " loading.");
     LOG("Target version: " << std::uppercase << std::hex << CURRENT_RELEASE_RUNTIME);
+    LOG("Game version: " << std::uppercase << std::hex << GetGameVersion());
 
     const auto moduleName = GetExeFilename();
+    const auto moduleAddr = reinterpret_cast<const UINT64>(GetModuleHandle(moduleName.c_str()));
     LOG("Found module name: " << moduleName);
+    LOG("Module base address: " << std::uppercase << std::hex << moduleAddr);
 
     const auto newBytes     = StringToByteVector("EB"); // EB == `jmp`
     auto       patchedCount = 0;
@@ -56,13 +59,14 @@ void DoInjection() {
         auto validTypes = TYPE_MAPPING.at(TARGET_NAME);
 
         for (const auto& address : addressesFound) {
-            const auto   addrBase  = reinterpret_cast<const UINT64>(address);
-            const auto   leaOffset = *reinterpret_cast<const UINT32*>(address + 5); // In short, move the ptr 5 bytes, and dereference the 4 bytes (the `lea` offset) as an int. // NOLINT(clang-diagnostic-cast-qual)
-            const UINT64 strBegin  = addrBase + leaOffset + 10; // +9 to offset to the end of the `lea` op, +1 to skip the char count. They're null-terminated anyways.
-            const auto   typeStr   = std::string(reinterpret_cast<const char*>(strBegin)); // NOLINT(performance-no-int-to-ptr)
+            const auto   addrBase     = reinterpret_cast<const UINT64>(address);
+            const auto   moduleOffset = addrBase - moduleAddr;
+            const auto   leaOffset    = *reinterpret_cast<const UINT32*>(address + 5); // In short, move the ptr 5 bytes, and dereference the 4 bytes (the `lea` offset) as an int. // NOLINT(clang-diagnostic-cast-qual)
+            const UINT64 strBegin     = addrBase + leaOffset + 10; // +9 to offset to the end of the `lea` op, +1 to skip the char count. They're null-terminated anyways.
+            const auto   typeStr      = std::string(reinterpret_cast<const char*>(strBegin)); // NOLINT(performance-no-int-to-ptr)
 
             if (Contains(validTypes, typeStr)) {
-                LOG("Target address: " << std::uppercase << std::hex << addrBase);
+                LOG("Target address: " << std::uppercase << std::hex << addrBase << " (" << moduleName << " + " << moduleOffset << ")");
                 //PrintNBytes(address, 13);
                 //LOG("LEA offset: " << std::uppercase << std::hex << leaOffset);
                 //LOG("String addr: " << std::uppercase << std::hex << strBegin);
@@ -117,6 +121,8 @@ __declspec(dllexport) SFSEPluginVersionData SFSEPlugin_Version = {
 // ReSharper disable once CppInconsistentNaming
 __declspec(dllexport) void SFSEPlugin_Load(const SFSEInterface* sfse) {
     out = SetupLog(GetLogPathAsCurrentDllDotLog());
+
+    LOG(TARGET_NAME << " initializing.");
 
     auto thread = std::thread([] {
         DoInjection();
