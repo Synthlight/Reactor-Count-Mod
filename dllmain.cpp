@@ -34,8 +34,15 @@ const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
 
 void DoInjection() {
     LOG(TARGET_NAME << " loading.");
-    LOG("Target version: " << std::uppercase << std::hex << CURRENT_RELEASE_RUNTIME);
-    LOG("Game version: " << std::uppercase << std::hex << GetGameVersion());
+
+    constexpr auto targetVersion = CURRENT_RELEASE_RUNTIME;
+    const auto     gameVersion   = GetGameVersion();
+    LOG("Target version: " << std::uppercase << std::hex << targetVersion);
+    LOG("Game version: " << std::uppercase << std::hex << gameVersion);
+    if (targetVersion != gameVersion) {
+        LOG("WARNING: TARGET VERSION DOES NOT MATCH DETECTED GAME VERSION! Patching may or may not work.");
+        LOG("If you're deliberately running this on an older release expect zero support and do not open bug reports about it not working.");
+    }
 
     const auto moduleName = GetExeFilename();
     const auto moduleAddr = reinterpret_cast<const UINT64>(GetModuleHandle(moduleName.c_str()));
