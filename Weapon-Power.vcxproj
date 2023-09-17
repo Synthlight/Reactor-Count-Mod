@@ -74,7 +74,22 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\Base-Dll-Proxy;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y
+
+:: Because we can't add it directly to the right path in the archive, just add it and rename/move it after.
+
+R:
+cd "$(ProjectDir)bin"
+
+:: DLL
+del "$(ProjectDir)bin\$(TargetName)-SFSE.7z"
+7z a -mx9 -y "$(ProjectDir)bin\$(TargetName)-SFSE.7z" "Release\$(TargetName)\$(TargetName).dll"
+7z rn -mx9 -y "$(ProjectDir)bin\$(TargetName)-SFSE.7z" "Release\$(TargetName)\$(TargetName).dll" "Data\SFSE\Plugins\$(TargetName).dll"
+
+:: ASI
+del "$(ProjectDir)bin\$(TargetName)-ASI.7z"
+7z a -mx9 -y "$(ProjectDir)bin\$(TargetName)-ASI.7z" "Release\$(TargetName)\$(TargetName).asi"
+7z rn -mx9 -y "$(ProjectDir)bin\$(TargetName)-ASI.7z" "Release\$(TargetName)\$(TargetName).asi" "$(TargetName).asi"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -100,7 +115,22 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y</Command>
+      <Command>copy "$(OutDirFullPath)$(TargetName).dll" "$(OutDirFullPath)$(TargetName).asi" /y
+
+:: Because we can't add it directly to the right path in the archive, just add it and rename/move it after.
+
+R:
+cd "$(ProjectDir)bin"
+
+:: DLL
+del "$(ProjectDir)bin\$(TargetName)-SFSE.7z"
+7z a -mx9 -y "$(ProjectDir)bin\$(TargetName)-SFSE.7z" "Release\$(TargetName)\$(TargetName).dll"
+7z rn -mx9 -y "$(ProjectDir)bin\$(TargetName)-SFSE.7z" "Release\$(TargetName)\$(TargetName).dll" "Data\SFSE\Plugins\$(TargetName).dll"
+
+:: ASI
+del "$(ProjectDir)bin\$(TargetName)-ASI.7z"
+7z a -mx9 -y "$(ProjectDir)bin\$(TargetName)-ASI.7z" "Release\$(TargetName)\$(TargetName).asi"
+7z rn -mx9 -y "$(ProjectDir)bin\$(TargetName)-ASI.7z" "Release\$(TargetName)\$(TargetName).asi" "$(TargetName).asi"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
