@@ -15,6 +15,8 @@ const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
     {"GravDrive-Weight-Mod", {"SB_ERRORBODY_SHIP_TOO_HEAVY_TO_GRAVJUMP"}},
     {"LandingGear-Count-Mod", {"SB_LIMITBODY_MIN_LANDING_GEAR"}},
     {"Reactor-Count-Mod", {"SB_LIMITBODY_MAX_REACTOR"}},
+    {"Cockpit-Count-Mod", {"SB_LIMITBODY_MAX_COCKPIT"}},
+    {"BayAndDocker-Count-Mod", {"SB_LIMITBODY_MAX_LANDING_BAY", "SB_LIMITBODY_MAX_DOCKER"}},
     {"Reactor-Class-Mod", {"SB_ERRORBODY_REACTOR_CLASS"}},
     {"Shield-Count-Mod", {"SB_LIMITBODY_MAX_SHIELD"}},
     {"Engine-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
@@ -26,6 +28,8 @@ const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
     {"GravDrive-Weight-Mod", {"73 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 73 == `jae`
     {"LandingGear-Count-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
     {"Reactor-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
+    {"Cockpit-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
+    {"BayAndDocker-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"Reactor-Class-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
     {"Shield-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"Engine-Power-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 7E == `jle`

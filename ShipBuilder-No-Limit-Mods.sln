@@ -19,6 +19,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shield-Count", "Shield-Coun
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Weapon-Power", "Weapon-Power.vcxproj", "{08806613-291B-47D3-B0ED-D044C4341B84}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BayAndDocker-Count", "BayAndDocker-Count.vcxproj", "{B1A1114B-D279-44D1-A30F-8AE5485A8C0C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cockpit-Count", "Cockpit-Count.vcxproj", "{E7BC43DC-EFDA-4460-A2AF-F75ADDCC4282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -57,6 +61,14 @@ Global
 		{08806613-291B-47D3-B0ED-D044C4341B84}.Debug|x64.Build.0 = Debug|x64
 		{08806613-291B-47D3-B0ED-D044C4341B84}.Release|x64.ActiveCfg = Release|x64
 		{08806613-291B-47D3-B0ED-D044C4341B84}.Release|x64.Build.0 = Release|x64
+		{B1A1114B-D279-44D1-A30F-8AE5485A8C0C}.Debug|x64.ActiveCfg = Debug|x64
+		{B1A1114B-D279-44D1-A30F-8AE5485A8C0C}.Debug|x64.Build.0 = Debug|x64
+		{B1A1114B-D279-44D1-A30F-8AE5485A8C0C}.Release|x64.ActiveCfg = Release|x64
+		{B1A1114B-D279-44D1-A30F-8AE5485A8C0C}.Release|x64.Build.0 = Release|x64
+		{E7BC43DC-EFDA-4460-A2AF-F75ADDCC4282}.Debug|x64.ActiveCfg = Debug|x64
+		{E7BC43DC-EFDA-4460-A2AF-F75ADDCC4282}.Debug|x64.Build.0 = Debug|x64
+		{E7BC43DC-EFDA-4460-A2AF-F75ADDCC4282}.Release|x64.ActiveCfg = Release|x64
+		{E7BC43DC-EFDA-4460-A2AF-F75ADDCC4282}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
