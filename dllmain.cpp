@@ -21,6 +21,7 @@ const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
     {"Shield-Count-Mod", {"SB_LIMITBODY_MAX_SHIELD"}},
     {"Engine-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
     {"Weapon-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_WEAPON", "SB_LIMITBODY_MAX_WEAPONS"}},
+    {"Build-Below-Bay-Mod", {"SB_ERRORBODY_MODULE_BELOW_LANDINGBAY"}},
 };
 
 const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
@@ -34,6 +35,7 @@ const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
     {"Shield-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"Engine-Power-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 7E == `jle`
     {"Weapon-Power-Mod", {"EB ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30", "7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // EB == `jmp`. This one's unique as the 74 (`je`) 4 ops before (-11 bytes) this to EB (`jmp`).
+    {"Build-Below-Bay-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
 };
 
 void DoInjection() {

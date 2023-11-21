@@ -2,12 +2,16 @@
 
 This was originally made for reactors counts, but has expanded to build multiple plugins to affect similar patches.
 
-- [No Reactor Limit](https://www.nexusmods.com/starfield/mods/1169)
-- [No Reactor Class Requirement](https://www.nexusmods.com/starfield/mods/1482)
-- [No Minimum Landing Gear](https://www.nexusmods.com/starfield/mods/1479)
-- [No Shield Limit](https://www.nexusmods.com/starfield/mods/1475)
+- [No Build Below Bay Error](https://www.nexusmods.com/starfield/mods/7078)
+- [No Cockpit Limit](https://www.nexusmods.com/starfield/mods/7079)
 - [No Engine Power Limits](https://www.nexusmods.com/starfield/mods/1511)
-- [No Weapon Power Limits](https://www.nexusmods.com/starfield/mods/1510)
+- [No Grav Drive Weight Limit](https://www.nexusmods.com/starfield/mods/2599)
+- [No Landing Bay or Docker Limits](https://www.nexusmods.com/starfield/mods/6150)
+- [No Minimum Landing Gear](https://www.nexusmods.com/starfield/mods/1479)
+- [No Reactor Class Requirement](https://www.nexusmods.com/starfield/mods/1482)
+- [No Reactor Limit](https://www.nexusmods.com/starfield/mods/1169)
+- [No Shield Limit](https://www.nexusmods.com/starfield/mods/1475)
+- [No Weapon Power or Count Limits](https://www.nexusmods.com/starfield/mods/1510)
 
 # Building
 
