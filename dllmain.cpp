@@ -11,31 +11,33 @@
 std::ofstream out;
 
 const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
+    {"Allow-Unattached-Modules-Mod", {"SB_ERRORBODY_NOT_ATTACHED"}},
+    {"BayAndDocker-Count-Mod", {"SB_LIMITBODY_MAX_LANDING_BAY", "SB_LIMITBODY_MAX_DOCKER"}},
+    {"Build-Below-Bay-Mod", {"SB_ERRORBODY_MODULE_BELOW_LANDINGBAY"}},
+    {"Cockpit-Count-Mod", {"SB_LIMITBODY_MAX_COCKPIT"}},
+    {"Engine-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
     //{"GravDrive-Count-Mod", {"SB_LIMITBODY_MAX_GRAV_DRIVE"}}, // Winds up with "you need additional grav thrust".
     {"GravDrive-Weight-Mod", {"SB_ERRORBODY_SHIP_TOO_HEAVY_TO_GRAVJUMP"}},
     {"LandingGear-Count-Mod", {"SB_LIMITBODY_MIN_LANDING_GEAR"}},
-    {"Reactor-Count-Mod", {"SB_LIMITBODY_MAX_REACTOR"}},
-    {"Cockpit-Count-Mod", {"SB_LIMITBODY_MAX_COCKPIT"}},
-    {"BayAndDocker-Count-Mod", {"SB_LIMITBODY_MAX_LANDING_BAY", "SB_LIMITBODY_MAX_DOCKER"}},
     {"Reactor-Class-Mod", {"SB_ERRORBODY_REACTOR_CLASS"}},
+    {"Reactor-Count-Mod", {"SB_LIMITBODY_MAX_REACTOR"}},
     {"Shield-Count-Mod", {"SB_LIMITBODY_MAX_SHIELD"}},
-    {"Engine-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
     {"Weapon-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_WEAPON", "SB_LIMITBODY_MAX_WEAPONS"}},
-    {"Build-Below-Bay-Mod", {"SB_ERRORBODY_MODULE_BELOW_LANDINGBAY"}},
 };
 
 const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
+    {"Allow-Unattached-Modules-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
+    {"BayAndDocker-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
+    {"Build-Below-Bay-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
+    {"Cockpit-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
+    {"Engine-Power-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 7E == `jle`
     //{"GravDrive-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"GravDrive-Weight-Mod", {"73 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 73 == `jae`
     {"LandingGear-Count-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
-    {"Reactor-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
-    {"Cockpit-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
-    {"BayAndDocker-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"Reactor-Class-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
+    {"Reactor-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"Shield-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
-    {"Engine-Power-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 7E == `jle`
     {"Weapon-Power-Mod", {"EB ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30", "7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // EB == `jmp`. This one's unique as the 74 (`je`) 4 ops before (-11 bytes) this to EB (`jmp`).
-    {"Build-Below-Bay-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
 };
 
 void DoInjection() {

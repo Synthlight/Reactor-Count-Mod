@@ -11,6 +11,7 @@ This was originally made for reactors counts, but has expanded to build multiple
 - [No Reactor Class Requirement](https://www.nexusmods.com/starfield/mods/1482)
 - [No Reactor Limit](https://www.nexusmods.com/starfield/mods/1169)
 - [No Shield Limit](https://www.nexusmods.com/starfield/mods/1475)
+- [No Unattached Module Error](https://www.nexusmods.com/starfield/mods/7095)
 - [No Weapon Power or Count Limits](https://www.nexusmods.com/starfield/mods/1510)
 
 # Building

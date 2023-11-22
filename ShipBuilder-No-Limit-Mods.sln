@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cockpit-Count", "Cockpit-Co
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Build-Below-Bay", "Build-Below-Bay.vcxproj", "{8BA88368-1D46-4AED-ABEA-3E4643E44456}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Allow-Unattached-Modules", "Allow-Unattached-Modules.vcxproj", "{40C9816D-37DF-42D4-A700-32413CBD312B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -75,6 +77,10 @@ Global
 		{8BA88368-1D46-4AED-ABEA-3E4643E44456}.Debug|x64.Build.0 = Debug|x64
 		{8BA88368-1D46-4AED-ABEA-3E4643E44456}.Release|x64.ActiveCfg = Release|x64
 		{8BA88368-1D46-4AED-ABEA-3E4643E44456}.Release|x64.Build.0 = Release|x64
+		{40C9816D-37DF-42D4-A700-32413CBD312B}.Debug|x64.ActiveCfg = Debug|x64
+		{40C9816D-37DF-42D4-A700-32413CBD312B}.Debug|x64.Build.0 = Debug|x64
+		{40C9816D-37DF-42D4-A700-32413CBD312B}.Release|x64.ActiveCfg = Release|x64
+		{40C9816D-37DF-42D4-A700-32413CBD312B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
