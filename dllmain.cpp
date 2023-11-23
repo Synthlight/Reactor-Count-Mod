@@ -13,7 +13,7 @@ std::ofstream out;
 const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
     {"Allow-Unattached-Modules-Mod", {"SB_ERRORBODY_NOT_ATTACHED"}},
     {"BayAndDocker-Count-Mod", {"SB_LIMITBODY_MAX_LANDING_BAY", "SB_LIMITBODY_MAX_DOCKER"}},
-    {"Build-Below-Bay-Mod", {"SB_ERRORBODY_MODULE_BELOW_LANDINGBAY", "SB_ERRORBODY_DOCKER_INVALID_POSITION"}},
+    {"Build-Below-Bay-Mod", {"SB_ERRORBODY_MODULE_BELOW_LANDINGBAY", "SB_ERRORBODY_DOCKER_INVALID_POSITION", "SB_ERRORBODY_LANDINGENGINE_NOT_ALIGNED_WITH_LANDINGBAY"}},
     {"Cockpit-Count-Mod", {"SB_LIMITBODY_MAX_COCKPIT"}},
     {"Engine-Power-Mod", {"SB_LIMITBODY_EXCESS_POWER_ENGINE"}},
     //{"GravDrive-Count-Mod", {"SB_LIMITBODY_MAX_GRAV_DRIVE"}}, // Winds up with "you need additional grav thrust".
@@ -28,7 +28,7 @@ const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
 const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
     {"Allow-Unattached-Modules-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
     {"BayAndDocker-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
-    {"Build-Below-Bay-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30", "75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
+    {"Build-Below-Bay-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
     {"Cockpit-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"Engine-Power-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 7E == `jle`
     //{"GravDrive-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
