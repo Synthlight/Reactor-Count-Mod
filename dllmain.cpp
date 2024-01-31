@@ -8,6 +8,8 @@
 #include "lib/SFSE/sfse/PluginAPI.h"
 #include "lib/SFSE/sfse_common/sfse_version.h"
 
+#define LOG_VERSION(a) GET_EXE_VERSION_MAJOR(a) << "." << GET_EXE_VERSION_MINOR(a) << "." << GET_EXE_VERSION_BUILD(a) << "." << GET_EXE_VERSION_SUB(a)
+
 std::ofstream out;
 
 const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
@@ -45,8 +47,8 @@ void DoInjection() {
 
     constexpr auto targetVersion = CURRENT_RELEASE_RUNTIME;
     const auto     gameVersion   = GetGameVersion();
-    LOG("Target version: " << std::uppercase << std::hex << targetVersion);
-    LOG("Game version: " << std::uppercase << std::hex << gameVersion);
+    LOG("Target version: " << LOG_VERSION(targetVersion));
+    LOG("Game version: " << LOG_VERSION(gameVersion));
     if (targetVersion != gameVersion) {
         LOG("WARNING: TARGET VERSION DOES NOT MATCH DETECTED GAME VERSION! Patching may or may not work.");
         LOG("If you're deliberately running this on an older release expect zero support and do not open bug reports about it not working.");
