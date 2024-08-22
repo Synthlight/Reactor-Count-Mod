@@ -10,7 +10,7 @@
 
 #define LOG_VERSION(a) GET_EXE_VERSION_MAJOR(a) << "." << GET_EXE_VERSION_MINOR(a) << "." << GET_EXE_VERSION_BUILD(a) << "." << GET_EXE_VERSION_SUB(a)
 
-std::ofstream out;
+const std::vector<BYTE> LEA_START = StringToByteVector("48 8D 15");
 
 const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
     {"Allow-Unattached-Modules-Mod", {"SB_ERRORBODY_NOT_ATTACHED"}},
@@ -29,17 +29,17 @@ const std::map<std::string, std::vector<std::string>> TYPE_MAPPING = {
 
 const std::map<std::string, std::vector<std::string>> SCAN_MAPPING = {
     {"Allow-Unattached-Modules-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
-    {"BayAndDocker-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
+    {"BayAndDocker-Count-Mod", {"7E ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D C8"}}, // 7E == `jle`
     {"Build-Below-Bay-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 75 == `jne`
-    {"Cockpit-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
+    {"Cockpit-Count-Mod", {"7E ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D D0"}}, // 7E == `jle`
     {"Engine-Power-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 7E == `jle`
     //{"GravDrive-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
     {"GravDrive-Weight-Mod", {"73 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30"}}, // 73 == `jae`
-    {"LandingGear-Count-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
-    {"Reactor-Class-Mod", {"75 ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 75 == `jne`
-    {"Reactor-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
-    {"Shield-Count-Mod", {"7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // 7E == `jle`
-    {"Weapon-Power-Mod", {"EB ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30", "7E ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 50"}}, // EB == `jmp`. This one's unique as the 74 (`je`) 4 ops before (-11 bytes) this to EB (`jmp`).
+    {"LandingGear-Count-Mod", {"75 ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D D0"}}, // 75 == `jne`
+    {"Reactor-Class-Mod", {"75 ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D D0"}}, // 75 == `jne`
+    {"Reactor-Count-Mod", {"7E ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D D0"}}, // 7E == `jle`
+    {"Shield-Count-Mod", {"7E ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 58"}}, // 7E == `jle`
+    {"Weapon-Power-Mod", {"EB ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 30", "7E ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 48 8D 4D 58"}}, // EB == `jmp`. This one's unique as the 74 (`je`) 4 ops before (-11 bytes) this to EB (`jmp`).
 };
 
 void DoInjection() {
@@ -76,11 +76,18 @@ void DoInjection() {
         auto validTypes = TYPE_MAPPING.at(TARGET_NAME);
 
         for (const auto& address : addressesFound) {
-            const auto   addrBase     = reinterpret_cast<const UINT64>(address);
-            const auto   moduleOffset = addrBase - moduleAddr;
-            const auto   leaOffset    = *reinterpret_cast<const UINT32*>(address + 5); // In short, move the ptr 5 bytes, and dereference the 4 bytes (the `lea` offset) as an int. // NOLINT(clang-diagnostic-cast-qual)
-            const UINT64 strBegin     = addrBase + leaOffset + 10; // +9 to offset to the end of the `lea` op, +1 to skip the char count. They're null-terminated anyways.
-            const auto   typeStr      = std::string(reinterpret_cast<const char*>(strBegin)); // NOLINT(performance-no-int-to-ptr)
+            const auto addrBase     = reinterpret_cast<const UINT64>(address);
+            const auto moduleOffset = addrBase - moduleAddr;
+
+            // Find the start of the `lea`.
+            const auto leaAddress = ScanMemory(moduleName, LEA_START, false, true, address)[0]; // AoBs differ, so scan for the `lea` from the AoB start address.
+            const auto leaBase    = reinterpret_cast<const UINT64>(leaAddress);
+            //LOG("`lea` found at: +" << std::uppercase << std::hex << reinterpret_cast<const UINT64>(leaAddress) - moduleAddr);
+            const auto leaOffset = *reinterpret_cast<const UINT32*>(leaAddress + 3); // In short, move the ptr 3 bytes, and dereference the 4 bytes (the `lea` offset) as an int. // NOLINT(clang-diagnostic-cast-qual)
+
+            const UINT64 strBegin = leaBase + leaOffset + 8; // +7 to offset to the end of the `lea` op, +1 to skip the char count. They're null-terminated anyways.
+            const auto   typeStr  = std::string(reinterpret_cast<const char*>(strBegin)); // NOLINT(performance-no-int-to-ptr)
+            //LOG("Found string: " << typeStr);
 
             if (Contains(validTypes, typeStr)) {
                 LOG("Target address: " << std::uppercase << std::hex << addrBase << " (" << moduleName << " + " << moduleOffset << ")");
@@ -122,7 +129,7 @@ BOOL WINAPI DllMain(HINSTANCE hInst, const DWORD reason, LPVOID) {
         // Do nothing if not an ASI as SFSE will handle it instead.
         if (!EndsWith(GetFullModulePath(), ".asi")) return TRUE;
 
-        out = SetupLog(GetLogPathAsCurrentDllDotLog());
+        SetupLog(GetLogPathAsCurrentDllDotLog());
 
         LOG(TARGET_NAME << " initializing.");
 
@@ -148,7 +155,7 @@ __declspec(dllexport) SFSEPluginVersionData SFSEPlugin_Version = {
 
     0, // not address independent
     0, // not structure independent
-    {CURRENT_RELEASE_RUNTIME, 0}, // compatible with 1.7.23 and that's it
+    {CURRENT_RELEASE_RUNTIME, 0}, // compatible with 1.13.61 and that's it
 
     0, // works with any version of the script extender. you probably do not need to put anything here
     0, 0, // set these reserved fields to 0
@@ -156,7 +163,7 @@ __declspec(dllexport) SFSEPluginVersionData SFSEPlugin_Version = {
 
 // ReSharper disable once CppInconsistentNaming
 __declspec(dllexport) void SFSEPlugin_Load(const SFSEInterface* sfse) {
-    out = SetupLog(GetLogPathAsCurrentDllDotLog());
+    SetupLog(GetLogPathAsCurrentDllDotLog());
 
     LOG(TARGET_NAME << " initializing.");
 
