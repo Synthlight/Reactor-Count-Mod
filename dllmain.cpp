@@ -236,7 +236,11 @@ void DoInjection() {
                     DoWithProtect(const_cast<BYTE*>(writeAddress), newBytes.size(), [writeAddress, newBytes] {
                         memcpy(const_cast<BYTE*>(writeAddress), newBytes.data(), newBytes.size());
                     });
-                    LOG("Change " << (i + 1) << " patched.");
+                    const auto changeAddr         = reinterpret_cast<const UINT64>(writeAddress);
+                    const auto changeModuleOffset = changeAddr - moduleAddr;
+
+                    LOG("Change " << (i + 1) << " patched: " << std::uppercase << std::hex << changeAddr << " (" << moduleName << " + " << changeModuleOffset << ")");
+                    LOG("    Wrote: " << BytesToString(newBytes));
                 }
 
                 LOG(patchInfo.sbConstString << " patched.");
